@@ -1,0 +1,384 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap');
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+// @import 'bootstrap.min.css';
+@import '_reset.scss';
+@import '_vars.scss';
+@import '_mixins.scss';
+@import '_extends.scss';
+
+.form {
+  font: 400 #{$formEm}px 'Open Sans',
+  Arial,
+  sans-serif;
+  background-color: $bg-color;
+  color: $color;
+
+  * {
+    outline: none;
+  }
+
+  .container {
+    @include boxSize(850);
+    margin: 0 auto;
+  }
+
+  .row {
+    @include flex(null, center);
+    @include margin($bottom: 20);
+
+    &__item {
+      @include margin($left: 5, $right: 5);
+      flex-grow: 1;
+      position: relative;
+    }
+
+    &_flex-start {
+      align-items: flex-start;
+    }
+  }
+
+  .title {
+    @include flex(null, center);
+    @include margin($top: 20, $left: -8, $bottom: 20);
+
+    &__numb {
+      position: relative;
+      left: -calculateEm(10);
+      color: $white-color;
+      font-weight: 700;
+      text-align: center;
+      z-index: 1;
+
+      &::before {
+        @include pseudo;
+        @include padding(10);
+        @include position_center(absolute, true, true, -1);
+        margin-left: .1px;
+        height: 100%;
+        background-color: $color;
+        border-radius: calculateEm(10);
+      }
+    }
+
+    &__txt {
+      @include font(800, 12);
+      @include margin($left: 15);
+      text-transform: uppercase;
+    }
+
+    &__icon {
+      &::after {
+        @extend %fonts-aw;
+        @include pseudo(null, '\f023');
+        @include margin($left: 15);
+      }
+    }
+  }
+
+  .subtitle {
+    @include font(700, 14);
+    text-transform: uppercase;
+  }
+
+  .error-message{
+    @include position_center(absolute, true, null, 1);
+    @include font(700, 10, rgba(255, 0, 0, 0.658));
+    @include padding($top: 5);
+    width: 100%;
+  }
+
+  .success-message{
+    @include basic-animation;
+    @include position_center(fixed, true, true, 999);
+    background-color: rgba(0000, 0000, 0000, .1);
+    margin-top: - calculateEm(10);
+    opacity: 0;
+    visibility: hidden;
+
+    &::before{
+      @include pseudo(null , 'Your form is correct');
+      @include padding(false, true, 10, 15, 10, 15);
+      @include boxSize($min-width: 300, $min-height: 150);
+      background-color: $white-color;
+      border-radius: calculateEm(3);
+    }
+
+    &.shown{
+      margin-top: initial;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .input-wrapper {
+    @extend %form-item-wrapper;
+
+    &__title {
+      @include basic-animation;
+      @include font(700, 13);
+      @include position_center(absolute, false, true, 1);
+      cursor: text;
+    }
+
+    input:not(:placeholder-shown)~.input-wrapper__title {
+      top: calculateEm(10);
+      margin-left: calculateEm(3);
+      font-size: calculateEm(10);
+    }
+
+    &__input {
+      @include font(400, 13);
+      width: 100%;
+      height: 100%;
+      border: none;
+
+      &::placeholder {
+        @include basic-animation;
+        @include slideUp;
+        color: $grey-color;
+      }
+
+      &:focus {
+        &~.input-wrapper__title {
+          top: calculateEm(10);
+          margin-left: calculateEm(3);
+          font-size: calculateEm(10);
+          color: #5DB603;
+        }
+
+        &::placeholder {
+          @include slideDown;
+        }
+      }
+    }
+
+    &:focus {
+      border: none;
+    }
+  }
+
+  .select-wrapper {
+    @extend %form-item-wrapper;
+    cursor: pointer;
+
+    select {
+      @include padding($left: 2);
+      appearance: none;
+      background-color: transparent;
+      border: none;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 700;
+      cursor: inherit;
+      line-height: inherit;
+      // background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+
+      &::-ms-expand {
+        display: none;
+      }
+    }
+
+    &::before {
+      @extend %fonts-aw;
+      @include position_center(absolute, false, true);
+      content: "\f107";
+      display: block;
+      font-size: calculateEm(14);
+      right: calculateEm(15);
+    }
+
+    .input-wrapper__title {
+      @include font(700, 10);
+      top: calculateEm(10);
+      margin-left: calculateEm(3);
+    }
+  }
+
+  .tooltip{
+    position: relative;
+
+    &__txt{
+      @include basic-animation;
+      @include position_center(absolute, true, null , 1);
+      @include padding(false, true, 5, 10, 5, 10);
+      background-color: $color;
+      opacity: 0;
+      visibility: hidden;
+      color: $white-color;
+      border-radius: calculateEm(3);
+      line-height: 1.5;
+      text-align: center;
+      bottom: 180%;
+
+      &::before{
+        @include pseudo;
+        background-color: $color;
+        border-radius: calculateEm(3);
+        width: 100%;
+        height: 100%;
+      }
+
+      &::after{
+        @include pseudo;
+        @include margin($top: -1, $left: - 10);
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        border-width: calculateEm(10);
+        border-style: solid;
+        border-color: $color transparent transparent transparent;
+      }
+    }
+
+    &:hover,
+    &:active,
+    &:focus{
+      .tooltip__txt{
+        opacity: 1;
+        visibility: visible;
+        bottom: 150%;
+      }
+    }
+  }
+
+  .personal-info-inputs {
+    width: 70%;
+  }
+
+  .order-cart {
+    @include padding(20);
+    @include boxSize($min-height: 80);
+    width: 30%;
+    position: relative;
+    background-color: $white-color;
+    border-radius: calculateEm(3);
+
+    &::before {
+      @include pseudo;
+      @include position(absolute, 0, 0, 0, 0);
+      @include margin(5);
+      border: 1px dashed #DCDCDC;
+      border-radius: calculateEm(3);
+    }
+
+    &__title {
+      @include margin($bottom: 10);
+      text-transform: uppercase;
+    }
+
+    &__txt {
+      @include font(600, 12);
+    }
+
+    &__price {
+      font-weight: 600;
+
+      &::before {
+        @include pseudo(null, '$');
+        @include margin($right: 3);
+      }
+    }
+
+    &__row {
+      @include flex(space-between, center);
+    }
+
+    &__total-purchases {
+      @include margin($top: 20);
+      @include padding($top: 10);
+      border-top: 1px dashed #DCDCDC;
+    }
+
+    &__estimated-tax {
+      @include padding($bottom: 10);
+      border-bottom: 1px dashed #DCDCDC;
+    }
+
+    &__total-price {
+      @include flex(null, flex-start);
+      @include padding($top: 14, $bottom: 18);
+
+      .order-cart__price {
+        @include font(700, 20);
+      }
+    }
+  }
+
+  .payment-details {
+    width: 70%;
+
+    .card-number-wrapper {
+      position: relative;
+
+      &__img-wrapper {
+        @include boxSize(null, 20);
+        @include position_center(absolute, null, true, 1);
+        right: calculateEm(10);
+
+        img {
+          @include padding(5);
+          display: block;
+          height: 100%;
+          border: 1px solid #DCDCDC;
+          border-radius: calculateEm(3);
+        }
+      }
+    }
+  }
+
+  .security-code-wrapper{
+    position: relative;
+
+    &__tooltip{
+      @include position_center(absolute, null , true, 1);
+      right: calculateEm(14);
+    }
+
+    &__icon{
+      @extend %fonts-aw;
+      font-size: calculateEm(18);
+      font-weight: 400;
+      color: #DCDCDC;
+      cursor: pointer;
+    }
+  }
+
+  .form-submit-label {
+    @extend %form-item-wrapper;
+    @include basic-animation;
+    @include font(700, 12);
+    @include flex(center, center);
+    border: none;
+    width: 100%;
+    background-color: #6BD400;
+    color: $white-color;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &__icon{
+      @extend %fonts-aw;
+      @include margin($top: -3, $right: 10);
+      font-size: calculateEm(10);
+      color: $white-color;
+    }
+
+    input{
+      display: none;
+    }
+
+    &:active,
+    &:focus{
+      border: none;
+    }
+
+    &::after{
+      background-color: #5DB603;
+    }
+  }
+}
+
+
+@import './media.scss';
