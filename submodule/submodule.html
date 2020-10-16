@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Starter Kit</title>
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <!-- Web Application Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Web Starter Kit">
+  <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+  <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+  <meta name="msapplication-TileColor" content="#2F3BA2">
+
+  <!-- Color the status bar on mobile devices -->
+  <meta name="theme-color" content="#2F3BA2">
+
+  <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+  <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+  <!-- Material Design Lite page styles:
+    You can choose other color schemes from the CDN, more info here http://www.getmdl.io/customize/index.html
+    Format: material.color1-color2.min.css, some examples:
+    material.red-teal.min.css
+    material.blue-orange.min.css
+    material.purple-indigo.min.css
+    -->
+  <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
+
+  <!-- Material Design icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <!-- Your styles -->
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/submodule/submodule.css">
+</head>
+
+<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+      <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+      </div>
+      <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+        <h3>Submodule</h3>
+      </div>
+      <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+      </div>
+      <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+        <a href="#overview" class="mdl-layout__tab is-active">Bacon</a>
+        <a href="#checkout" class="mdl-layout__tab">Checkout</a>
+      </div>
+    </header>
+    <main class="mdl-layout__content">
+      <div class="mdl-layout__tab-panel is-active" id="overview">
+        <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+          <button class="add-more-bacon" type="button">Yeah, I want more bacon!</button>
+        </section>
+        <section class="bacon-img-container section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+          <img class="bacon-img" src="http://media.washtimes.com.s3.amazonaws.com/media/image/2015/02/23/bacon.jpg"
+            alt="Bacon" style="width: 100%; height: 100%;">
+        </section>
+      </div>
+      <div class="mdl-layout__tab-panel" id="checkout">
+        <form id="form-id" class="form">
+          <div class="success-message"></div>
+          <div class="container">
+            <div class="row">
+              <section class="row__item title">
+                <span class="title__numb">1</span>
+                <p class="title__txt">Personal information</p>
+              </section>
+            </div>
+            <div class="row row_flex-start">
+              <section class="row__item personal-info-inputs">
+                <div class="row">
+                  <div class="row__item">
+                    <label class="input-wrapper">
+                      <input type="text" name="firsName" class="input-wrapper__input input-text" placeholder="Elon">
+                      <p class="input-wrapper__title">First name</p>
+                    </label>
+                  </div>
+                  <div class="row__item">
+                    <label class="input-wrapper">
+                      <input type="text" name="secondName" class="input-wrapper__input input-text" placeholder="Musk">
+                      <p class="input-wrapper__title">Last name</p>
+                    </label>
+                  </div>
+                </div>
+                <div class="row">
+                  <section class="row__item">
+                    <label class="input-wrapper">
+                      <input type="text" name="email" class="input-wrapper__input input-email"
+                        placeholder="elon@spacex.com">
+                      <p class="input-wrapper__title">Email</p>
+                    </label>
+                  </section>
+                </div>
+                <div class="row">
+                  <div class="row__item">
+                    <label class="select-wrapper">
+                      <select name="country" id="country-select-id">
+                        <option value="USA">United States</option>
+                        <option value="Norway">Norway</option>
+                        <option value="Germany">Germany</option>
+                      </select>
+                      <p class="input-wrapper__title">Country</p>
+                    </label>
+                  </div>
+                  <div class="row__item">
+                    <label class="input-wrapper">
+                      <input type="text" name="postalCode" class="input-wrapper__input input-post" placeholder="10001"
+                        maxlength="5">
+                      <p class="input-wrapper__title">Postal Code</p>
+                    </label>
+                  </div>
+                </div>
+                <div class="row">
+                  <section class="row__item">
+                    <label class="input-wrapper">
+                      <input type="text" name="phoneNumber" class="input-wrapper__input input-phone"
+                        placeholder="(212) 692-93-92" maxlength="10">
+                      <p class="input-wrapper__title">Phone Number</p>
+                    </label>
+                  </section>
+                </div>
+              </section>
+              <aside class="row__item order-cart">
+                <p class="subtitle order-cart__title">Your order</p>
+                <div class="order-cart__row">
+                  <p class="order-cart__txt">Apple Watch Sport</p>
+                  <p class="order-cart__price">580</p>
+                </div>
+                <div class="order-cart__row">
+                  <p class="order-cart__txt">Modern Buckle</p>
+                  <p class="order-cart__price">380</p>
+                </div>
+                <div class="order-cart__row order-cart__total-purchases">
+                  <p class="order-cart__txt">Total purchases</p>
+                  <p class="order-cart__price">960.00</p>
+                </div>
+                <div class="order-cart__row order-cart__estimated-tax">
+                  <p class="order-cart__txt">Estimated tax</p>
+                  <p class="order-cart__price">0</p>
+                </div>
+                <div class="order-cart__row order-cart__total-price">
+                  <p class="order-cart__txt">Total</p>
+                  <p class="order-cart__price">960</p>
+                </div>
+              </aside>
+            </div>
+            <section class="payment-details">
+              <div class="row">
+                <section class="row__item title title__icon">
+                  <span class="title__numb">2</span>
+                  <p class="title__txt">Payments details</p>
+                </section>
+              </div>
+              <div class="row">
+                <section class="row__item">
+                  <label class="input-wrapper card-number-wrapper">
+                    <input id="card-number-id" type="text" name="cardNumber" name="card-number"
+                      class="input-wrapper__input input-card-number" placeholder="0000 - 0000 - 0000 - 0000"
+                      maxlength="25">
+                    <p class="input-wrapper__title">Credit Card Number</p>
+                    <div class="card-number-wrapper__img-wrapper">
+                      <img src="../images/visa_logo.svg" alt="visa logo">
+                    </div>
+                  </label>
+                </section>
+              </div>
+              <div class="row">
+                <div class="row__item">
+                  <label class="input-wrapper security-code-wrapper">
+                    <input type="password" name="securityCode" class="input-wrapper__input input-security-code"
+                      placeholder="***" maxlength="3">
+                    <p class="input-wrapper__title">Security code</p>
+                    <div class="security-code-wrapper__tooltip tooltip">
+                      <i class="security-code-wrapper__icon far fa-question-circle"></i>
+                      <p class="tooltip__txt">This is security code</p>
+                    </div>
+                  </label>
+                </div>
+                <div class="row__item">
+                  <label class="input-wrapper">
+                    <input type="text" name="expirationDate" class="input-wrapper__input input-expiration-date"
+                      placeholder="MM / YY" maxlength="7">
+                    <p class="input-wrapper__title">Expiration date</p>
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="row__item">
+                  <label class="form-submit-label">
+                    <i class="form-submit-label__icon fas fa-shopping-cart"></i>
+                    <span class="form-submit-label__txt">Complete purchase</span>
+                    <input type="submit" id="submit-button-id" />
+                  </label>
+                </div>
+              </div>
+            </section>
+          </div>
+        </form>
+      </div>
+      <footer class="mdl-mega-footer">
+        <div class="mdl-mega-footer--middle-section">
+          <div class="mdl-mega-footer--drop-down-section">
+            <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+            <h1 class="mdl-mega-footer--heading">Features</h1>
+            <ul class="mdl-mega-footer--link-list">
+              <li><a href="#">About</a></li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Partners</a></li>
+              <li><a href="#">Updates</a></li>
+            </ul>
+          </div>
+          <div class="mdl-mega-footer--drop-down-section">
+            <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+            <h1 class="mdl-mega-footer--heading">Details</h1>
+            <ul class="mdl-mega-footer--link-list">
+              <li><a href="#">Spec</a></li>
+              <li><a href="#">Tools</a></li>
+              <li><a href="#">Resources</a></li>
+            </ul>
+          </div>
+          <div class="mdl-mega-footer--drop-down-section">
+            <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+            <h1 class="mdl-mega-footer--heading">Technology</h1>
+            <ul class="mdl-mega-footer--link-list">
+              <li><a href="#">How it works</a></li>
+              <li><a href="#">Patterns</a></li>
+              <li><a href="#">Usage</a></li>
+              <li><a href="#">Products</a></li>
+              <li><a href="#">Contracts</a></li>
+            </ul>
+          </div>
+          <div class="mdl-mega-footer--drop-down-section">
+            <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+            <h1 class="mdl-mega-footer--heading">FAQ</h1>
+            <ul class="mdl-mega-footer--link-list">
+              <li><a href="#">Questions</a></li>
+              <li><a href="#">Answers</a></li>
+              <li><a href="#">Contact us</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="mdl-mega-footer--bottom-section">
+          <div class="mdl-logo">
+            More Information
+          </div>
+          <ul class="mdl-mega-footer--link-list">
+            <li><a href="https://developers.google.com/web/starter-kit/">Web Starter Kit</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Privacy and Terms</a></li>
+          </ul>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+  <!-- build:js(app/) ../../scripts/main.min.js -->
+  <script src="scripts/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // Adding bacon START
+
+      const btnToAddMoreBacon = document.querySelector('.add-more-bacon');
+      btnToAddMoreBacon.addEventListener('click', () => addMoreBacon());
+
+      function addMoreBacon() {
+        const container = document.querySelector('.bacon-img-container');
+        const baconImg = document.querySelector('.bacon-img');
+        const baconImgClone = baconImg.cloneNode(true);
+        container.appendChild(baconImgClone);
+      }
+
+      // Adding bacon END
+
+      // Form validation START
+      const inputs = document.querySelectorAll('.input-wrapper__input');
+      const formId = document.querySelector('#form-id');
+
+      const validateForm = () => {
+        const successMessage = document.querySelector('.success-message');
+        inputs.forEach((input) => {
+          const inputWrapper = input.parentElement.parentElement;
+          const errorMessage = document.createElement('p');
+          const inputValueLength = input.value.split('').length;
+          if (input.value == '') {
+            successMessage.classList.remove('shown');
+            if (inputWrapper.querySelector('.error-message')) {
+              inputWrapper.querySelector('.error-message').textContent =
+                'Field is empty, please correct the form';
+              return;
+            }
+            createErrorMessage(inputWrapper, errorMessage, 'Field is empty, please correct the form');
+          } else {
+            if (inputWrapper.querySelector('.error-message')) inputWrapper.querySelector('.error-message')
+              .remove();
+            validateInputOnSubmit(inputWrapper, input, errorMessage, inputValueLength);
+            if (!document.querySelector('.error-message')) successMessage.classList.add('shown');
+          }
+        })
+      }
+
+      formId.addEventListener('submit', () => {
+        event.preventDefault();
+        validateForm();
+      })
+
+      const createErrorMessage = (inputWrapper, errorMessage, text) => {
+        errorMessage.textContent = text;
+        errorMessage.classList.add('error-message');
+        inputWrapper.appendChild(errorMessage);
+      }
+
+      const validateInputOnSubmit = (inputWrapper, input, errorMessage, inputValueLength) => {
+        const inputValueTooShortShowError = (length) => {
+          if (inputValueLength < length) createErrorMessage(inputWrapper, errorMessage,
+          'Too short input value');
+        }
+        if (input.classList.contains('input-email')) {
+          const emailExpression =
+            /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          if (!emailExpression.test(input.value)) createErrorMessage(inputWrapper, errorMessage,
+            'Please correct the email address');
+        }
+        if (input.classList.contains('input-post')) inputValueTooShortShowError(5);
+        if (input.classList.contains('input-phone')) inputValueTooShortShowError(10);
+        if (input.classList.contains('input-card-number')) inputValueTooShortShowError(25);
+        if (input.classList.contains('input-expiration-date')) inputValueTooShortShowError(7);
+        inputValueTooShortShowError(3);
+
+      }
+
+      for (let item of inputs) {
+        item.addEventListener('input', () => {
+          checkInputCorrectValue(item);
+        })
+      }
+
+      const checkInputCorrectValue = (input) => {
+        if (input.classList.contains('input-text')) input.value = input.value.replace(/[^aA-zZ]+/g, '');
+        if (input.classList.contains('input-post') || input.classList.contains('input-phone')) input.value = input
+          .value.replace(/[^0-9]/g, '');
+        if (input.classList.contains('input-card-number')) {
+          let newValue = '';
+          input.value = input.value.replace(/[^0-9.]/g, '');
+          for (let index = 0; index < input.value.length; index++) {
+            if (index % 4 === 0 && index > 0) newValue = newValue.concat(' - ');
+            newValue = newValue.concat(input.value[index]);
+          }
+          input.value = newValue;
+        }
+        if (input.classList.contains('input-security-code')) {
+          input.value = input.value.replace(/[^0-9.]/g, '');
+        }
+        if (input.classList.contains('input-expiration-date')) {
+          let newValue = '';
+          input.value = input.value.replace(/[^0-9.]/g, '');
+          for (let index = 0; index < input.value.length; index++) {
+            if (index % 2 === 0 && index > 0) newValue = newValue.concat(' / ');
+            newValue = newValue.concat(input.value[index]);
+          }
+          input.value = newValue;
+        }
+      }
+
+      // Form validation END
+    })
+
+  </script>
+
+  <!-- endbuild -->
+
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-XXXXX-X', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+  <!-- Built with love using Web Starter Kit -->
+</body>
+
+</html>
