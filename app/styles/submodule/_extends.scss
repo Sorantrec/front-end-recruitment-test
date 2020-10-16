@@ -11,6 +11,7 @@
   display: block;
   background-color: $white-color;
   border-radius: calculateEm(5);
+  overflow: hidden;
 
   &::after{
     @include basic-animation;

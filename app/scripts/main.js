@@ -77,19 +77,4 @@
 
   // Your custom JavaScript goes here
 
-  window.addEventListener('DOMContentLoaded', function () {
-
-    // Adding bacon START
-    const btnToAddMoreBacon = document.querySelector('.add-more-bacon');
-    btnToAddMoreBacon.addEventListener('click', () => addMoreBacon());
-    function addMoreBacon() {
-      const container = document.querySelector('.bacon-img-container');
-      const baconImg = document.querySelector('.bacon-img');
-      const baconImgClone = baconImg.cloneNode(true);
-      container.appendChild(baconImgClone);
-    }
-    // Adding bacon END
-
-  });
-
 })();

@@ -99,8 +99,17 @@
       @include pseudo(null , 'Your form is correct');
       @include padding(false, true, 10, 15, 10, 15);
       @include boxSize($min-width: 300, $min-height: 150);
+      @include position(relative, $z-index: 2);
       background-color: $white-color;
       border-radius: calculateEm(3);
+    }
+
+    &::after{
+      @include pseudo;
+      @include position_center(absolute, true, true, 1);
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(34, 34, 34, 0.171);
     }
 
     &.shown{
@@ -155,6 +164,10 @@
     &:focus {
       border: none;
     }
+
+    .input-card-number{
+      width: 90%;
+    }
   }
 
   .select-wrapper {
@@ -174,7 +187,6 @@
       font-weight: 700;
       cursor: inherit;
       line-height: inherit;
-      // background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
 
       &::-ms-expand {
         display: none;
@@ -351,6 +363,7 @@
     @include basic-animation;
     @include font(700, 12);
     @include flex(center, center);
+    @include margin($bottom: 30);
     border: none;
     width: 100%;
     background-color: #6BD400;

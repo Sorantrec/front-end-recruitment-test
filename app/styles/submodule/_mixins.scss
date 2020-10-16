@@ -1,19 +1,5 @@
 @import './vars.scss';
 
-@function is-number($value) {
-  @return type-of($value)=='number';
-}
-
-@function is-string($value) {
-  @return type-of($value)=='string';
-}
-
-@mixin center-block {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 @mixin pseudo($display: block, $content: '') {
   content: $content;
   display: $display;
@@ -28,21 +14,6 @@
     @if ($size) {
       $emSize: $size / $formEm;
       @return #{$emSize}em;
-    }
-  }
-}
-
-$border-radius: calculateEm(3);
-
-@function calculateVh($size, $viewport-height: 1080) {
-  @if (type-of($size)=='string') {
-    @error $noStringError;
-  }
-
-  @else {
-    @if ($size) {
-      $vhSize: $size * 100 / $viewport-height;
-      @return #{$vhSize}vh;
     }
   }
 }
@@ -445,42 +416,6 @@ $border-radius: calculateEm(3);
   height: 100%;
   overflow: initial;
   transform: rotateX(0deg);
-}
-
-@mixin dropdownUp {
-  transform-origin: top;
-  transform: scaleY(0);
-  opacity: 0;
-}
-
-@mixin dropdownDown {
-  transform: scaleY(1);
-  opacity: 1;
-}
-
-@mixin border-radius($top: 0, $right: 0, $bottom: 0, $left: 0) {
-  @if ($top !=0 and type-of($top)=='number'and $right !=0 and type-of($right)=='number'and $bottom !=0 and type-of($bottom)=='number'and $left !=0 and type-of($left)=='number'
-
-  ) {
-    border-radius: calculateEm($top) calculateEm($right) calculateEm($bottom) calculateEm($left);
-  }
-
-  @else if(type-of($top)=='string'and type-of($right)=='string'and type-of($bottom)=='string'and type-of($left)=='string'
-
-  ) {
-    border-radius: $top $right $bottom $left;
-  }
-
-  @else if($top==0 and $right==0 and $bottom==0 and $left==0) {
-    border-radius: $top $right $bottom $left;
-  }
-}
-
-@mixin crop-txt($max-width) {
-  max-width: $max-width;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 @mixin basic-animation($transition-time: 0.2s, $animated-element: all, $timing: ease-in-out) {
